@@ -1,63 +1,4 @@
 
-
-body {
-    position: relative;
-    height: 100vh;
-}
-
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-}
-
-nav {
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    padding: 0rem 3rem 0 3rem;
-    font-size: 1.2rem;
-    font-family: "Calibri Italic";
-}
-
-a {
-    text-decoration: none;
-}
-
-nav ul {
-    margin: 0 0 0 auto;
-}
-
-nav ul li {
-    display: inline-block;
-    margin: 0 0.5em;
-}
-
-nav h1{
-    color: white;
-}
-
-nav a, footer, footer a {
-    text-decoration: none;
-    border-radius: 0.5em;
-    padding: 0.5em;
-    color: white;
-    text-transform: uppercase;
-}
-
-nav a:hover, footer a:hover {
-    font-weight: bold;
-    background-color: rgba(99, 99, 99, 0.466);
-}
-
-footer {
-    position:inherit;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    padding: 0.5em 1em;
-}
-
 form {
     max-width: 40em;
     min-width: 15em;
@@ -190,12 +131,6 @@ form button:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.329);
     color: white;
-}
-
-.welcomeText {
-   margin-left: 3em;
-font-family: serif;
-font-size: 1.3em;
 }
 
 .errortext {

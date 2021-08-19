@@ -1,0 +1,37 @@
+<ng-container *ngIf="errorMessage.length != 0">
+    <section class="notifications error">
+        <p> Server Error -> {{errorMessage}}</p>
+        <p>autohide in {{time}}</p>
+    </section>
+</ng-container>
+
+<form #form="ngForm" (ngSubmit)="login(form)">
+    <h2>Login</h2>
+
+
+    <div>
+        <label for="username">Username:</label>
+        <input #usernameInput="ngModel" ngModel type="text" name="username" id="username" placeholder="Username"
+            value="" required minlength="5">
+            
+        <ng-container *ngIf="usernameInput.touched">
+            <p *ngIf="usernameInput.errors?.required" class="errortext">Username is required! </p>
+            <p *ngIf="usernameInput.errors?.minlength" class="errortext">Username length must be at least 5 characters
+            </p>
+        </ng-container>
+    </div>
+
+    <div>
+        <label for="password">Password:</label>
+        <input ngModel name="password" #passwordInput="ngModel" type="password" placeholder="Password" value="" required
+            minlength="5">
+
+        <ng-container *ngIf="passwordInput.touched">
+            <p *ngIf="passwordInput.errors?.required" class="errortext">Password is required! </p>
+            <p *ngIf="passwordInput.errors?.minlength" class="errortext">Password length must be at least 5 characters
+            </p>
+        </ng-container>
+    </div>
+
+    <button class="btn">Login</button>
+</form>

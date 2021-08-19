@@ -1,0 +1,52 @@
+<section *ngIf="!isLogged" class="container">
+    <h1>Welcome</h1>
+    <div class="welcomeText">
+        <ul>
+            <li>Do you love making photos?</li>
+            <li>Do you wonder how good you are in making photos?</li>
+            <li>Would you like to get some feedback from different people related to your photos?</li>
+        </ul>
+        <p>If you have a triple YES as an answer then you are on the right web
+            location. Please subscribe and share your best photos. Once uploaded
+            all visitors will be able to review, comment or even like your them.
+        </p>
+        <div style="text-align:center">
+            <a class="btn-register" routerLink="/register">Register</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="aux">
+        <h1>{{collectionTitle}}</h1>
+        <div *ngIf="isLogged" class="home-buttons">
+            <a class="btn create-photo" routerLink="/create">Share photo</a>
+            <a class="btn create-photo" (click)="recent()">Recent photos</a>
+            <a class="btn create-photo" (click)="mostLiked()">Most liked photos</a>
+        </div>
+    </div>
+    <div class="photos-container">
+
+
+
+        <div *ngFor="let photo of photos">
+            <div class="home-image">
+                <img src="{{photo.imageUrl}}" alt="Card image cap">
+            </div>
+            <div class="info">
+                <h4>{{photo.title}}</h4>
+                <div class="info-buttons">
+                    <a *ngIf="isLogged" class="btn details" [routerLink]="['/details', photo._id]">More Info</a>
+                    <span class="likes">{{photo.likes}} likes</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div *ngIf="!photos">Loading...</div>
+
+
+
+    </div>
+
+</section>

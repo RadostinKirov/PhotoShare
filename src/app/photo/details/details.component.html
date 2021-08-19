@@ -1,0 +1,35 @@
+<ng-container *ngIf="errorMessage.length != 0">
+    <section class="notifications error">
+        <p> Server Error -> {{errorMessage}}</p>
+        <p>autohide in {{time}}</p>
+    </section>
+</ng-container>
+
+<div class="container">
+    <ng-container *ngIf="photo">
+        <section class="details">
+            <h1>{{photo!.title}}</h1>
+            <div style="text-align: center">
+                <img src="{{photo!.imageUrl}}" />
+            </div>
+
+            <section class="description">
+                <h3>Photo Description</h3>
+                <p>{{photo!.description}}</p>
+
+                <div class="info-buttons">
+                    <div class="buttons-align">
+                        <a *ngIf="isOwner" class="btn delete" (click)="delete()">Delete</a>
+                        <a *ngIf="isOwner" class="btn edit" [routerLink]="['/edit', photo._id]">Edit</a>
+                    </div>
+                    <div class="likes-align">
+                        <span class="likes">{{photo!.likes}} likes</span>
+                      
+                           <a *ngIf="!isOwner && !isAlreadyLiked" class="btn like" (click)="like()">Like</a>
+                                              
+                    </div>
+                </div>
+            </section>
+        </section>
+    </ng-container>
+</div>

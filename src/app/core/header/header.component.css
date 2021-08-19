@@ -1,0 +1,37 @@
+nav {
+    /*  background-color: transparent; */
+    background-color: rgba(61, 61, 65, 0.774);
+      display: flex;
+      align-items: center;
+      padding: 0rem 3rem 0 3rem;
+      font-size: 1.2rem;
+      font-family: "Calibri Italic";
+  }
+  
+  a {
+      text-decoration: none;
+  }
+  
+  nav ul {
+      margin: 0 0 0 auto;
+  }
+  
+  nav ul li {
+      display: inline-block;
+      margin: 0 0.5em;
+  }
+  
+  nav a, footer, footer a {
+      text-decoration: none;
+      border-radius: 0.5em;
+      padding: 0.5em;
+      color: white;
+      text-transform: uppercase;
+  }
+  
+  nav a:hover, footer a:hover {
+      font-weight: bold;
+      background-color: rgba(99, 99, 99, 0.466);
+  }
+  
+  

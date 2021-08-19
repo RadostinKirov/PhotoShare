@@ -1,0 +1,53 @@
+<ng-container *ngIf="errorMessage.length != 0">
+    <section class="notifications error">
+        <p> Server Error -> {{errorMessage}}</p>
+        <p>autohide in {{time}}</p>
+    </section>
+</ng-container>
+
+<form #form="ngForm" (ngSubmit)="register(form)">
+    <h2>Register</h2>
+  
+    <div class="on-dark">
+        <label for="username">Username:</label>
+        <ng-container *ngIf="usernameInput.touched">
+            <p *ngIf="usernameInput.errors?.required" class="errortext">Username is required!</p>
+            <p *ngIf="usernameInput.errors?.minlength" class="errortext">Username length must be at least 5 characters!</p>
+        </ng-container>
+        <input #usernameInput="ngModel" ngModel name="username" type="text" placeholder="John" value="" required [minlength]="5">
+    </div>
+
+    <ng-container #passwordsInput="ngModelGroup" ngModelGroup="passwordsInput" required="true">
+
+        <div class="on-dark">
+            <label for="password">Password:</label>
+            <input #passwordInput="ngModel" ngModel name="password" type="password" placeholder="********" 
+             value="" required="true" [minlength]="5"
+             (ngModelChange)="rePassInput.control.updateValueAndValidity()"> 
+        </div>
+        <ng-container *ngIf="passwordInput.touched && passwordInput.invalid">
+            <p *ngIf="passwordInput.errors?.required" class="errortext">Password is required!</p>
+            <p *ngIf="passwordInput.errors?.minlength" class="errortext">Password length must be at least 5 characters!</p>
+        </ng-container>
+        <div class="on-dark">
+            
+            <label for="rePassInput">Repeat Password:</label>
+            <input #rePassInput="ngModel" ngModel name="rePassInput" appConfirmEqualValidator="password" type="password" placeholder="********" value="" required="true" [minlength]="5">
+            <ng-container *ngIf="rePassInput.touched && rePassInput.invalid">
+                <p *ngIf="rePassInput.errors?.required" class="errortext">Password is required!</p>
+                <p *ngIf="rePassInput.errors?.minlength" class="errortext">Password length must be at least 5 characters!</p>
+                <p *ngIf="rePassInput.errors?.notEqual" class="errortext">Password and Repeat password don't match!</p>
+            
+            </ng-container>
+        </div>
+        
+        <ng-container>
+            <p *ngIf="passwordsInput.errors" class="errortext">Error catched!</p>
+            <p *ngIf="passwordsInput.errors?.required" class="errortext">Password / Repeat Password is required!</p>
+            <p *ngIf="passwordsInput.errors?.minlength" class="errortext">Password /Repeat Pasword length must be at least 5 characters!</p>
+            <p *ngIf="passwordsInput.errors?.pattern" class="errortext">Password /Repeat Password must contain at least one capital character!</p>
+            
+        </ng-container>
+    </ng-container>
+    <button class="btn">Register</button>
+</form>

@@ -1,0 +1,104 @@
+
+a {
+    text-decoration: none;
+}
+
+
+.btn {
+    /* border: 2px solid black; */
+    border-radius: 0.3em;
+    padding: 0.1em 0.3em;
+    color: black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.568);
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.329);
+    color: white;
+}
+
+section {
+    background-color: rgba(255, 255, 255, 0.849);
+     margin: 1em 3em;
+     padding: 1em;
+     border-radius: 1rem;
+     box-shadow: 2px 10px 1.5em 5px black;
+ }
+ 
+ section>h1 {
+     margin-bottom: 0.5em;
+     font-size: 2em;
+ }
+ 
+
+ 
+ img {
+     /* display: block; */
+     margin: 0 auto;
+     max-width: 100%;
+ }
+ 
+ 
+.liked {
+    background-color: green;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    color: white;
+}
+
+a.create-photo {
+    margin-left: 2em;
+    /* background-color: rgb(151, 199, 18); */
+    padding: 0.5em;
+}
+
+.info-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.likes {
+    display: block;
+    margin: 0 1em;
+}
+
+.likes-align{
+    display: flex;
+}
+
+.buttons-align{
+    display: flex;
+    
+}
+
+.edit{
+    display: block;
+    margin: 0 1em;
+}
+
+.errortext {
+    background-color: transparent;
+    font-family: system-ui;
+    font-size: 1rem;
+    color: rgb(185, 9, 9);
+}
+
+.notifications {
+    /* display:none; */
+    margin: 2em;
+    padding: 1em;
+    position: absolute;
+    right: 0;
+    width: 20em;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-radius: 1em;
+    color: white;
+}
+
+
+.error {
+    background-color: rgba(245, 58, 136, 0.568);
+    border-color: rgba(255, 0, 0, 0.315);
+}

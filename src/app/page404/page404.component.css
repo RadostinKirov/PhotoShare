@@ -1,0 +1,40 @@
+
+a {
+    text-decoration: none;
+}
+
+
+section {
+    background-color: rgba(255, 255, 255, 0.849);
+     margin: 1em 3em;
+     padding: 1em;
+     border-radius: 1rem;
+     box-shadow: 2px 10px 1.5em 5px black;
+     margin: 5em auto;
+     width: max-content;
+ }
+ 
+ 
+ img {
+     /* display: block; */
+     margin: 0 auto;
+     max-width: 100%;
+ }
+ 
+ .btn-home {
+    /* border: 2px solid black; */
+    display: inline-block;
+    border-radius: 0.3em;
+    margin-top: 1em;
+    padding: 0.2em 2.9em;
+    color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.568);
+    font-family: "Calibri";
+    font-size: 40px;
+}
+
+.btn-home:hover{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.568);
+    color: rgba(250,76,41,255);
+}

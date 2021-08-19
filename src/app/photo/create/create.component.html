@@ -1,0 +1,36 @@
+<ng-container *ngIf="errorMessage.length != 0">
+    <section class="notifications error">
+        <p> Server Error -> {{errorMessage}}</p>
+        <p>autohide in {{time}}</p>
+    </section>
+</ng-container>
+
+<form #form="ngForm" class="createPhoto-form"   (ngSubmit)="create(form)">
+    <h1>Share photo</h1>
+    <div>
+        <label for="title">Photo title:</label>
+        <input #titleInput="ngModel" ngModel type="text" name="title" placeholder="Photo name" value="" required>
+        <ng-container *ngIf="titleInput.touched">
+            <p *ngIf="titleInput.errors?.required" class="errortext">Photo title is required!</p>
+        </ng-container>
+    </div>
+    <div>
+        <label for="description">Photo Description:</label>
+        <textarea #descriptionInput="ngModel" ngModel name="description" placeholder="Description" required></textarea>
+        <ng-container *ngIf="descriptionInput.touched">
+            <p *ngIf="descriptionInput.errors?.required" class="errortext">Photo Description is required!</p>
+        </ng-container>
+    </div>
+    <div>
+        <label for="imageUrl">Photo url:</label>
+        <input #imageUrlInput="ngModel" ngModel name="imageUrl" type="text" placeholder="Photo Url"
+         value="" required pattern="^http[s]?://.*">
+        <ng-container *ngIf="imageUrlInput.touched">
+            <p *ngIf="imageUrlInput.errors?.required" class="errortext">imageUrl is required!</p>
+            <p *ngIf="imageUrlInput.errors?.pattern" class="errortext">Please enter a valid URL ( http:// or https:// )</p>
+
+        </ng-container>
+    </div>
+
+    <button class="btn">Share</button>
+</form>

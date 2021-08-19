@@ -1,0 +1,30 @@
+<ng-container *ngIf="photo">
+    <form #form="ngForm" class="createPhoto-form"   (ngSubmit)="fetchPhoto(); edit(form)">
+        <h1>Edit photo</h1>
+    <div>
+        <label for="title">Photo title:</label>
+        <input #titleInput="ngModel" ngModel type="text" name="title"  [(ngModel)]="photo.title" required>
+        <ng-container *ngIf="titleInput.touched">
+            <p *ngIf="titleInput.errors?.required" class="errortext">Photo title is required!</p>
+        </ng-container>
+    </div>
+    <div>
+        <label for="description">Photo Description:</label>
+        <textarea #descriptionInput="ngModel" ngModel name="description" placeholder="Description" [(ngModel)]="photo.description" required></textarea>
+        <ng-container *ngIf="descriptionInput.touched">
+            <p *ngIf="descriptionInput.errors?.required" class="errortext">Photo Description is required!</p>
+        </ng-container>
+    </div>
+    <div>
+        <label for="imageUrl">Photo url:</label>
+        <input #imageUrlInput="ngModel" ngModel type="text" name="imageUrl" placeholder="Photo Url" [(ngModel)]="photo.imageUrl"
+         required pattern="^http[s]?://.*">
+        <ng-container *ngIf="imageUrlInput.touched">
+            <p *ngIf="imageUrlInput.errors?.required" class="errortext">ImageUrl is required!</p>
+            <p *ngIf="imageUrlInput.errors?.pattern" class="errortext">Please enter a valid URL ( http:// or https:// )</p>
+        </ng-container>
+    </div>
+    
+    <button class="btn">Edit</button>
+</form>
+</ng-container>

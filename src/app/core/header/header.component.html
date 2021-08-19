@@ -1,0 +1,9 @@
+<nav>
+    <a routerLink="/home">Photos</a>
+    <ul>
+        <li><a routerLink="/home">Home </a></li>
+        <li *ngIf="isLogged" (click)="logout()"><a routerLink="">Logout</a></li>
+        <li *ngIf="!isLogged"><a routerLink="/login">Login</a></li>
+        <li *ngIf="!isLogged"><a routerLink="/register">Register</a></li>
+    </ul>
+</nav>

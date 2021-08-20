@@ -1,18 +1,19 @@
 <ng-container *ngIf="errorMessage.length != 0">
     <section class="notifications error">
-        <p> Server Error -> {{errorMessage}}</p>
+        <p>{{errorMessage}}</p>
         <p>autohide in {{time}}</p>
     </section>
 </ng-container>
-
 <form #form="ngForm" (ngSubmit)="register(form)">
     <h2>Register</h2>
-  
+    
     <div class="on-dark">
         <label for="username">Username:</label>
-        <ng-container *ngIf="usernameInput.touched">
+            <ng-container *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)">
             <p *ngIf="usernameInput.errors?.required" class="errortext">Username is required!</p>
             <p *ngIf="usernameInput.errors?.minlength" class="errortext">Username length must be at least 5 characters!</p>
+            <p *ngIf="usernameInput.errors?.dirty" class="errortext">Username is required2</p>
+        
         </ng-container>
         <input #usernameInput="ngModel" ngModel name="username" type="text" placeholder="John" value="" required [minlength]="5">
     </div>
@@ -49,5 +50,5 @@
             
         </ng-container>
     </ng-container>
-    <button class="btn">Register</button>
+    <button class="btn" >Register</button>
 </form>

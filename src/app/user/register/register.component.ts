@@ -16,9 +16,33 @@ export class RegisterComponent {
     private userService: UserService,
     private router: Router) { }
 
+
+  setError(err: string) {
+    console.error('An error occure -> ', err);
+    this.time = 5;
+    const timer = setInterval(() => {
+      if (this.time <= 0) {
+        clearInterval(timer);
+      }
+      this.time--;
+      if (this.time == 0) {
+        this.errorMessage = '';
+      }
+    }, 1000);
+  }
+
+  
   register(form: NgForm) {
     const username = form.value.username;
     const password = form.value.passwordsInput.password
+    console.log('is username empty string -> ', username == '');
+    console.log('is password empty string -> ', password == '');
+
+    if (username == '' || password == '') {
+      this.errorMessage = 'Form error -> All fields are required!';
+      this.setError(this.errorMessage);
+      return
+    }
     console.log('test')
     this.userService.register({ username, password }).subscribe({
       next: user => {
@@ -26,19 +50,11 @@ export class RegisterComponent {
         this.router.navigate(['/']);
       },
       error: error => {
-        this.errorMessage = error.error;
-        console.error('An error occure -> ', this.errorMessage);
-        this.time = 5;
-        const timer = setInterval(() => {
-          if (this.time <= 0) {
-            clearInterval(timer);
-          }
-          this.time--;
-          if (this.time == 0) {
-            this.errorMessage = '';
-          }
-        }, 1000);
+        this.errorMessage =`Server error -> ${error.error}`;
+        this.setError(this.errorMessage);
       }
     });
   }
+
+
 }

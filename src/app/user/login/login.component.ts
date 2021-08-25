@@ -9,7 +9,6 @@ import { UserService } from '../user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  user: any;
   errorMessage = '';
   time = 5;
 
@@ -19,34 +18,32 @@ export class LoginComponent {
     private userService: UserService,
     private router: Router) { };
 
-    setError(err: string) {
-      console.error('An error occure -> ', err);
-      this.time = 5;
-      const timer = setInterval(() => {
-        if (this.time <= 0) {
-          clearInterval(timer);
-        }
-        this.time--;
-        if (this.time == 0) {
-          this.errorMessage = '';
-        }
-      }, 1000);
-    }
+  setError(err: string) {
+    console.error('An error occure -> ', err);
+    this.time = 5;
+    const timer = setInterval(() => {
+      if (this.time <= 0) {
+        clearInterval(timer);
+      }
+      this.time--;
+      if (this.time == 0) {
+        this.errorMessage = '';
+      }
+    }, 1000);
+  }
 
   login(form: NgForm) {
     const username = form.value.username;
     const password = form.value.password;
-   
+
     if (username == '' || password == '') {
       this.errorMessage = 'Form error -> All fields are required!';
       this.setError(this.errorMessage);
       return
     }
-      
-    let response = this.userService.login({ username, password }).subscribe({
-      next: user => {
-        this.user = user;
-        console.log(this.activateRoute.snapshot.queryParams.redirectUrl);
+
+    this.userService.login({ username, password }).subscribe({
+      next: () => {
         this.router.navigate([this.activateRoute.snapshot.queryParams.redirectUrl || '/']);
 
       },

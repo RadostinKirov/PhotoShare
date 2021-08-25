@@ -8,7 +8,6 @@ import { UserService } from '../user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  user: any;
   errorMessage: string = '';
   time = 5;
 
@@ -45,8 +44,7 @@ export class RegisterComponent {
     }
     console.log('test')
     this.userService.register({ username, password }).subscribe({
-      next: user => {
-        this.user = user;
+      next: () => {
         this.router.navigate(['/']);
       },
       error: error => {

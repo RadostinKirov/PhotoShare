@@ -9,24 +9,24 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class HeaderComponent {
 
-  
-
-  get isLogged(): boolean {
+    get isLogged(): boolean {
     return this.userService.isLogged;
+  }
+
+  get username() {
+    const username: any = this.userService.userInfo
+    return username.username;
   }
 
   constructor(
     private userService: UserService,
-    private router: Router) { }
-
+    private router: Router) {}
+  
 
   logout(): void {
     this.userService.logout();
     this.router.navigate(['/']);
   }
-
-
-
 
 
 }

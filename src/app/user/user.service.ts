@@ -10,7 +10,7 @@ const API_URL = environment.apiUrl;
 
 @Injectable()
 export class UserService {
-  user: any;
+ // user: any;
   errorMessage: string = '';
   
   constructor(

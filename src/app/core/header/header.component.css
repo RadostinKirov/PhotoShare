@@ -12,6 +12,10 @@ nav {
       text-decoration: none;
   }
   
+  #userGreeting {
+       color: rgb(250, 239, 91);
+      }
+
   nav ul {
       margin: 0 0 0 auto;
   }

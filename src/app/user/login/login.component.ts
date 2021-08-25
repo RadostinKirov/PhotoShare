@@ -46,7 +46,8 @@ export class LoginComponent {
     let response = this.userService.login({ username, password }).subscribe({
       next: user => {
         this.user = user;
-        this.router.navigate(['/']);
+        console.log(this.activateRoute.snapshot.queryParams.redirectUrl);
+        this.router.navigate([this.activateRoute.snapshot.queryParams.redirectUrl || '/']);
 
       },
       error: error => {

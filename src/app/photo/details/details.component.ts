@@ -6,8 +6,6 @@ import { UserService } from 'src/app/user/user.service';
 import Swal from 'sweetalert2';
 
 
-
-
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',

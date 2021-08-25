@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
 import jwtDecode from 'jwt-decode';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../environments/environment';
@@ -10,7 +9,6 @@ const API_URL = environment.apiUrl;
 
 @Injectable()
 export class UserService {
- // user: any;
   errorMessage: string = '';
   
   constructor(

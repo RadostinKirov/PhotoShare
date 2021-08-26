@@ -15,6 +15,10 @@ export class ContentService {
     return this.http.get<IPhoto[]>(`${API_URL}`);
   }
   
+  loadAllUserPhotos(userId:string) {
+    return this.http.post<IPhoto[]>(`${API_URL}/photo/profilePhotos/${userId}`, {userId});
+  }
+
   loadRecentPhotos() {
     return this.http.get<IPhoto[]>(`${API_URL}/photo/recent`);
   }

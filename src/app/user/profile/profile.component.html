@@ -1,0 +1,30 @@
+<section>
+    <div>
+        <h1>Photographer info </h1>
+        <ul>
+            <li>Username : <span>{{username}}</span></li>
+            <li>Total shared photos: <span>{{photosCount}}</span></li>
+            <li>Total likes count: <span>{{likesCount}}</span></li>
+        </ul>
+    </div>
+
+
+    <div class="photos-container">
+     
+         <div *ngFor="let photo of photos">
+            <div class="home-image">
+                <img src="{{photo.imageUrl}}" alt="Card image cap">
+            </div>
+            <div class="info">
+                <h4>{{photo.title}}</h4>
+                <div class="info-buttons">
+                    <a class="btn details" [routerLink]="['/details', photo._id]">More Info</a>
+                    <span class="likes">{{photo.likes}} likes</span>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</section>

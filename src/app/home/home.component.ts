@@ -28,7 +28,10 @@ export class HomeComponent {
  
   fetchPhotos() {
     this.photos = undefined;
-    this.allPhotosSubscription = this.contentService.loadPhotos().subscribe(photos => this.photos = photos);
+    this.allPhotosSubscription = this.contentService.loadPhotos().subscribe(photos => {
+      this.photos = photos
+      console.log(this.photos)
+    });
   }
 
   recent() {

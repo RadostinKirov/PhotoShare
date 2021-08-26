@@ -25,10 +25,9 @@
             <a class="btn create-photo" (click)="mostLiked()">Most liked photos</a>
         </div>
     </div>
+
     <div class="photos-container">
-
-
-
+        
         <div *ngFor="let photo of photos">
             <div class="home-image">
                 <img src="{{photo.imageUrl}}" alt="Card image cap">

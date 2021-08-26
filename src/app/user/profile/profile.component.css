@@ -7,6 +7,10 @@ a {
     text-decoration: none;
 }
 
+span {
+    font-size: 1.3em;
+    color: rgb(60, 29, 231);
+}
 
 .btn {
     /* border: 2px solid black; */

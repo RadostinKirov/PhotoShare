@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import jwtDecode from 'jwt-decode';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../environments/environment';
+import { IUser } from '../shared/interfaces/user';
 
 const API_URL = environment.apiUrl;
 
@@ -20,7 +21,7 @@ export class UserService {
     return !!this.userInfo;
   }
 
-  get userInfo() {
+  get userInfo(): IUser | null {
     const jwt = this.cookieService.get("SESSION_TOKEN");
     try {
       return jwtDecode(jwt);

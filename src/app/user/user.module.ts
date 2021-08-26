@@ -7,12 +7,14 @@ import { RegisterComponent } from './register/register.component';
 import { UserService } from './user.service';
 import { ConfirmEqualValidatorDirective } from '../shared/confirm-equal-valiator.directive';
 import { CookieService } from 'ngx-cookie-service';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
+    ProfileComponent,
     ConfirmEqualValidatorDirective
   ],
   imports: [

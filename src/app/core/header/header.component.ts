@@ -9,7 +9,7 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class HeaderComponent {
 
-    get isLogged(): boolean {
+  get isLogged(): boolean {
     return this.userService.isLogged;
   }
 
@@ -20,8 +20,8 @@ export class HeaderComponent {
 
   constructor(
     private userService: UserService,
-    private router: Router) {}
-  
+    private router: Router) { }
+
 
   logout(): void {
     this.userService.logout();

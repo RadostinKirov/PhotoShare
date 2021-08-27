@@ -121,7 +121,7 @@ export class DetailsComponent {
         this.contentService.delete(photoId!).subscribe({
           next: photo => {
             this.photo = photo;
-            this.router.navigate(['/']);
+        //    this.router.navigate(['/']);
           },
           error: error => {
             this.errorMessage = error.error;

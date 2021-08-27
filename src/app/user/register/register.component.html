@@ -37,7 +37,7 @@
             <ng-container *ngIf="rePassInput.touched && rePassInput.invalid">
                 <p *ngIf="rePassInput.errors?.required" class="errortext">Password is required!</p>
                 <p *ngIf="rePassInput.errors?.minlength" class="errortext">Password length must be at least 5 characters!</p>
-                <p *ngIf="rePassInput.errors?.notEqual" class="errortext">Password and Repeat password don't match!</p>
+                <p *ngIf="rePassInput.errors?.notEqual && !rePassInput.errors?.required" class="errortext">Password and Repeat password don't match!</p>
             
             </ng-container>
         </div>

@@ -9,9 +9,9 @@
     </div>
 
 
+
     <div class="photos-container">
-     
-         <div *ngFor="let photo of photos">
+    <div *ngFor="let photo of photos" >
             <div class="home-image">
                 <img src="{{photo.imageUrl}}" alt="Card image cap">
             </div>
@@ -22,9 +22,12 @@
                     <span class="likes">{{photo.likes}} likes</span>
                 </div>
             </div>
-
         </div>
-
-
     </div>
+
+    <div *ngIf="photos == undefined || photos.length==0" id="hurry">`
+        <h1>You didn't share any photos yet. Hutty up!</h1>
+        <a class="btn create-photo" routerLink="/create">Share photo</a>
+    </div>
+
 </section>

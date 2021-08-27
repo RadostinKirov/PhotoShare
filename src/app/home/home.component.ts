@@ -21,11 +21,11 @@ export class HomeComponent {
     private userService: UserService) {
     this.fetchPhotos();
   }
-  
+
   get isLogged(): boolean {
     return this.userService.isLogged;
   }
- 
+
   fetchPhotos() {
     this.photos = undefined;
     this.allPhotosSubscription = this.contentService.loadPhotos().subscribe(photos => {
@@ -41,14 +41,18 @@ export class HomeComponent {
       this.mostLikedPhotosSubscription.unsubscribe()
     };
 
-    this.fetchPhotos();
+    this.photos = undefined;
+    this.allPhotosSubscription = this.contentService.loadRecentPhotos().subscribe(photos => {
+      this.photos = photos
+      console.log(this.photos)
+    });
     this.collectionTitle = 'Checkout Our Last Uploads';
   }
 
   mostLiked() {
     this.allPhotosSubscription.unsubscribe();
 
-    this.mostLikedPhotosSubscription = this.contentService.loadMostLikedPhotos().subscribe(photos => this.photos = photos.slice(0,3));
+    this.mostLikedPhotosSubscription = this.contentService.loadMostLikedPhotos().subscribe(photos => this.photos = photos.slice(0, 3));
     this.collectionTitle = 'Top 3 most liked photos';
   }
 
